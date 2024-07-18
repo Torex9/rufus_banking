@@ -119,7 +119,9 @@ export const createLinkToken = async (user: User) => {
       language: "en",
       country_codes: ["US"] as CountryCode[],
     };
+
     const response = await plaidClient.linkTokenCreate(tokenParams);
+
     return parseStringify({ linkToken: response.data.link_token });
   } catch (error) {
     console.log(error);
@@ -132,7 +134,7 @@ export const createBankAccount = async ({
   accountId,
   accessToken,
   fundingSourceUrl,
-  sharableId,
+  shareableId,
 }: createBankAccountProps) => {
   try {
     const { database } = await createAdminClient();
@@ -141,10 +143,20 @@ export const createBankAccount = async ({
       DATABASE_ID!,
       BANK_COLLECTION_ID!,
       ID.unique(),
-      { userId, bankId, accountId, accessToken, fundingSourceUrl, sharableId }
+      {
+        userId,
+        bankId,
+        accountId,
+        accessToken,
+        fundingSourceUrl,
+        shareableId,
+      }
     );
+
     return parseStringify(bankAccount);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error);
+  }
 };
 
 // This function exchanges a public token for an access token and item ID
@@ -197,7 +209,7 @@ export const exchangePublicToken = async ({
       accountId: accountData.account_id,
       accessToken,
       fundingSourceUrl,
-      sharableId: encryptId(accountData.account_id),
+      shareableId: encryptId(accountData.account_id),
     });
 
     // Revalidate the path to reflect the changes
