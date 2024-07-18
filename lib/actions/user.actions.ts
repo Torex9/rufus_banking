@@ -46,7 +46,7 @@ export const signUp = async ({ password, ...userData }: SignUpParams) => {
       `${firstName} ${lastName}`
     );
 
-    if (!newUserAccount) throw new Error("Error cretaing user");
+    if (!newUserAccount) throw new Error("Error creating user");
 
     const dwollaCustomerUrl = await createDwollaCustomer({
       ...userData,
@@ -120,7 +120,7 @@ export const createLinkToken = async (user: User) => {
       country_codes: ["US"] as CountryCode[],
     };
     const response = await plaidClient.linkTokenCreate(tokenParams);
-    return parseStringify({ linkToken: response.data });
+    return parseStringify({ linkToken: response.data.link_token });
   } catch (error) {
     console.log(error);
   }

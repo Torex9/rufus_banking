@@ -111,11 +111,10 @@ const AuthForm = ({ type }: { type: string }) => {
                     <CustomInput
                       control={form.control}
                       name="lastName"
-                      label="last Name"
-                      placeholder="Enter your last name"
+                      label="Last Name"
+                      placeholder="Enter your first name"
                     />
                   </div>
-
                   <CustomInput
                     control={form.control}
                     name="address1"
@@ -142,7 +141,6 @@ const AuthForm = ({ type }: { type: string }) => {
                       placeholder="Example: 11101"
                     />
                   </div>
-
                   <div className="flex gap-4">
                     <CustomInput
                       control={form.control}
@@ -159,12 +157,14 @@ const AuthForm = ({ type }: { type: string }) => {
                   </div>
                 </>
               )}
+
               <CustomInput
                 control={form.control}
                 name="email"
                 label="Email"
                 placeholder="Enter your email"
               />
+
               <CustomInput
                 control={form.control}
                 name="password"
@@ -173,7 +173,7 @@ const AuthForm = ({ type }: { type: string }) => {
               />
 
               <div className="flex flex-col gap-4">
-                <Button type="submit" className="form-btn" disabled={isLoading}>
+                <Button type="submit" disabled={isLoading} className="form-btn">
                   {isLoading ? (
                     <>
                       <Loader2 size={20} className="animate-spin" /> &nbsp;
@@ -189,17 +189,17 @@ const AuthForm = ({ type }: { type: string }) => {
             </form>
           </Form>
 
-          <footer className="flex  justify-center gap-1">
+          <footer className="flex justify-center gap-1">
             <p className="text-14 font-normal text-gray-600">
               {type === "sign-in"
-                ? "Don't have an account ?"
-                : "Already have an account ?"}
+                ? "Don't have an account?"
+                : "Already have an account?"}
             </p>
             <Link
               href={type === "sign-in" ? "/sign-up" : "/sign-in"}
               className="form-link"
             >
-              {type === "sign-in" ? "Sign Up" : "Sign In"}
+              {type === "sign-in" ? "Sign up" : "Sign in"}
             </Link>
           </footer>
         </>

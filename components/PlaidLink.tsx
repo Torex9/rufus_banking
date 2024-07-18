@@ -10,33 +10,42 @@ import {
   createLinkToken,
   exchangePublicToken,
 } from "@/lib/actions/user.actions";
+import Image from "next/image";
 
 const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
-  const [token, setToken] = useState("");
   const router = useRouter();
+
+  const [token, setToken] = useState("");
 
   useEffect(() => {
     const getLinkToken = async () => {
       const data = await createLinkToken(user);
+
       setToken(data?.linkToken);
     };
+
+    getLinkToken();
   }, [user]);
+
   const onSuccess = useCallback<PlaidLinkOnSuccess>(
     async (public_token: string) => {
-      await exchangePublicToken({ publicToken: public_token, user });
+      await exchangePublicToken({
+        publicToken: public_token,
+        user,
+      });
 
       router.push("/");
     },
-
     [user]
   );
+
   const config: PlaidLinkOptions = {
     token,
     onSuccess,
   };
 
   const { open, ready } = usePlaidLink(config);
-  console.log(ready);
+
   return (
     <>
       {variant === "primary" ? (
@@ -45,12 +54,12 @@ const PlaidLink = ({ user, variant }: PlaidLinkProps) => {
           disabled={!ready}
           className="plaidlink-primary"
         >
-          Connect Banks
+          Connect bank
         </Button>
       ) : variant === "ghost" ? (
-        <Button>Connect Bank</Button>
+        <Button>Connect bank</Button>
       ) : (
-        <Button>Connect Bank</Button>
+        <Button>Connect bank</Button>
       )}
     </>
   );
