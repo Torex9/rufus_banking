@@ -12,7 +12,7 @@ import { createTransaction } from "@/lib/actions/transaction.actions";
 import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
 import { decryptId } from "@/lib/utils";
 
-import { BankDropDown } from "./BankDropDown";
+import BankDropDown from "./BankDropDown";
 import { Button } from "./ui/button";
 import {
   Form,
