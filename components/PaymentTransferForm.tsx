@@ -12,7 +12,7 @@ import { createTransaction } from "@/lib/actions/transaction.actions";
 import { getBank, getBankByAccountId } from "@/lib/actions/user.actions";
 import { decryptId } from "@/lib/utils";
 
-import { BankDropdown } from "./BankDropDown";
+import { BankDropDown } from "./BankDropDown";
 import { Button } from "./ui/button";
 import {
   Form,
@@ -112,7 +112,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
                 </div>
                 <div className="flex w-full flex-col">
                   <FormControl>
-                    <BankDropdown
+                    <BankDropDown
                       accounts={accounts}
                       setValue={form.setValue}
                       otherStyles="!w-full"

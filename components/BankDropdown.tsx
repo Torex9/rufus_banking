@@ -14,11 +14,11 @@ import {
 } from "@/components/ui/select";
 import { formUrlQuery, formatAmount } from "@/lib/utils";
 
-export const BankDropdown = ({
+export const BankDropDown = ({
   accounts = [],
   setValue,
   otherStyles,
-}: BankDropdownProps) => {
+}: BankDropDownProps) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selected, setSeclected] = useState(accounts[0]);
