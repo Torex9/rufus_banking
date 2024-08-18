@@ -14,11 +14,11 @@ import {
 } from "@/components/ui/select";
 import { formUrlQuery, formatAmount } from "@/lib/utils";
 
-const BankDropDown = ({
+export const BankDropdown = ({
   accounts = [],
   setValue,
   otherStyles,
-}: BankDropDownProps) => {
+}: BankDropdownProps) => {
   const searchParams = useSearchParams();
   const router = useRouter();
   const [selected, setSeclected] = useState(accounts[0]);
@@ -45,7 +45,7 @@ const BankDropDown = ({
       onValueChange={(value) => handleBankChange(value)}
     >
       <SelectTrigger
-        className={`flex w-full bg-white gap-3 md:w-[300px] ${otherStyles}`}
+        className={`flex w-full gap-3 md:w-[300px] ${otherStyles}`}
       >
         <Image
           src="icons/credit-card.svg"
@@ -56,7 +56,7 @@ const BankDropDown = ({
         <p className="line-clamp-1 w-full text-left">{selected.name}</p>
       </SelectTrigger>
       <SelectContent
-        className={`w-full bg-white md:w-[300px] ${otherStyles}`}
+        className={`w-full md:w-[300px] ${otherStyles}`}
         align="end"
       >
         <SelectGroup>
@@ -82,5 +82,3 @@ const BankDropDown = ({
     </Select>
   );
 };
-
-export default BankDropDown;
