@@ -113,7 +113,7 @@ const PaymentTransferForm = ({ accounts }: PaymentTransferFormProps) => {
                     <BankDropdown
                       accounts={accounts}
                       setValue={form.setValue}
-                      otherStyles="!w-full"
+                      otherStyles="!w-full !bg-white"
                     />
                   </FormControl>
                   <FormMessage className="text-12 text-red-500" />
