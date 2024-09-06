@@ -58,10 +58,12 @@ const RecentTransactions = ({
               appwriteItemId={appwriteItemId}
               type="full"
             />
-            <TransactionsTable transactions={currentTransactions} />
+            <div className="relative -z-10">
+              <TransactionsTable transactions={currentTransactions} />
+            </div>
 
             {totalPages > 1 && (
-              <div className="my-4 w-full">
+              <div className="my-4 w-2/3 mx-auto">
                 <Pagination totalPages={totalPages} page={page} />
               </div>
             )}
