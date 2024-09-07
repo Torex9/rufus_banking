@@ -85,8 +85,48 @@ const AuthForm = ({ type }: { type: string }) => {
             <p className="text-16 font-normal text-gray-600 ">
               {user
                 ? "Link your account to get started"
-                : "Please enter your details"}
+                : "Please enter your details below"}
             </p>
+
+            <p
+              className={`text-16 font-semibold text-gray-600 mt-3 ${
+                type === "sign-in" ? "block" : "hidden"
+              }`}
+            >
+              {user ? "" : type === "sign-in" ? "OR" : ""}
+            </p>
+
+            {/* test login */}
+
+            <div
+              className={`text-16 font-semibold mt-3 text-green-500 ${
+                type === "sign-in" ? "block" : "hidden"
+              }`}
+            >
+              {user
+                ? ""
+                : type === "sign-in"
+                ? "Please Use The Provided Details Below To Sign In."
+                : ""}
+            </div>
+            <div
+              className={`text-16 font-semibold mt-3 text-green-500 ${
+                type === "sign-in" ? "block" : "hidden"
+              }`}
+            >
+              {user
+                ? ""
+                : type === "sign-in"
+                ? "Email: RufusOludare68@gmail.com"
+                : ""}
+            </div>
+            <div
+              className={`text-16 font-semibold mt-3 text-green-500 ${
+                type === "sign-in" ? "block" : "hidden"
+              }`}
+            >
+              {user ? "" : type === "sign-in" ? "Password: Testing1234" : ""}
+            </div>
           </h1>
         </div>
       </header>
