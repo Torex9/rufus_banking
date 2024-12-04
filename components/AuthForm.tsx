@@ -117,7 +117,7 @@ const AuthForm = ({ type }: { type: string }) => {
               {user
                 ? ""
                 : type === "sign-in"
-                ? "Email: Rufusoludare70@gmail.com"
+                ? "Email: Rufusoludare73@gmail.com"
                 : ""}
             </div>
             <div
